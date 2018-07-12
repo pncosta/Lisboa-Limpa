@@ -8,8 +8,14 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { GoogleMaps } from "@ionic-native/google-maps";
+
+import { HTTP } from "@ionic-native/http";
+import { KmlProvider } from '../providers/kml/kml';
 
 @NgModule({
   declarations: [
@@ -17,7 +23,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -29,12 +36,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
+    ListPage,
     TabsPage
   ],
   providers: [
     StatusBar,
+    GoogleMaps,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    HTTP,
+    KmlProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
   ]
 })
 export class AppModule {}
