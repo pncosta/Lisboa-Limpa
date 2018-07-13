@@ -1,20 +1,41 @@
 # Lisboa-Limpa
 
-App for the Lisboa Limpa project (lisboalimpao.org)
+Mobile App for the Lisboa Limpa project (lisboalimpa.org)
 
-Build with Ionic
+Build with love and Ionic for Ios and Android
 
 # Requirements
 
-ionic
+ionic - https://ionicframework.com/
 
-cordova
+`npm install -g ionic`
 
-to test: android studio (emulator) or xcode (for ios emulator)
+To test: android studio for Anndroid Emulator or Xcode for ios emulator (mac only)
 
 # Install
 
-git clone the repo
+`git clone https://github.com/pncosta/Lisboa-Limpa.git`
+
+### build and run on IOS
+
+
+`ionic cordova build ios`
+
+`ionic cordova emulate ios`
+
+### build and run on Android
+
+`ionic cordova build android`
+
+`ionic cordova run android` 
+
+
+
+
+
+
+
+
 
 
 
