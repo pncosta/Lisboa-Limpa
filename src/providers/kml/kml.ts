@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import xml2js from 'xml2js';
 import { HTTP } from '@ionic-native/http';
+
 /*
   Generated class for the KmlProvider provider.
 
@@ -48,8 +48,7 @@ export class KmlProvider {
 
   loadKml() {
     return new Promise(resolve => {
-      console.log ("getting xml...");
-      const kmlUrl = 'http://www.google.com/maps/d/kml?forcekml=1&mid=1Ec-RMhGJHWZAj6DEhWaloC9CavfgNxMo&lid=CwvafB05g8c';
+      const kmlUrl = 'http://www.google.com/maps/d/kml?forcekml=1&mid=1M2Y6bIXjkG-JkrxIc5iBR1fL_P6RHlPj&lid=CwvafB05g8c';
       this.http.get(kmlUrl, {}, {})
       .then(data => resolve(this.parseXML(data.data)))
     });

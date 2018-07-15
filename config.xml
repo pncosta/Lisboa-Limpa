@@ -3,7 +3,7 @@
     <name>Lisboa Limpa</name>
     <description>App do projecto Lisboa Limpa.</description>
     <author email="pedro.nobrega.costa@gmail.com">App developer</author>
-    <content original-src="index.html" src="http://192.168.1.72:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -93,5 +93,6 @@
     </plugin>
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.1" />
+    <allow-navigation href="http://192.168.1.87:8100" />
     <engine name="android" spec="7.0.0" />
 </widget>

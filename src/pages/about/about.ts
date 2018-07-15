@@ -7,8 +7,7 @@ import {
   Marker,
   GoogleMapsAnimation,
   MyLocation,
-  MarkerOptions,
-  KmlOverlay
+  MarkerOptions
 } from '@ionic-native/google-maps';
 
 
@@ -24,6 +23,8 @@ export class AboutPage {
   mapReady: boolean = false;
   map: GoogleMap;
 
+  title: string = 'nenhum';
+
   constructor( private kml: KmlProvider) {
   }
 
@@ -38,8 +39,11 @@ export class AboutPage {
       var k;
       for(k in r) {
         const item = r[k];
-        var options: MarkerOptions = this.getMarkerFromObject(item);
-         this.map.addMarker(options); //.then((marker: Marker) => {});
+        let options: MarkerOptions = this.getMarkerFromObject(item);
+       let marker = this.map.addMarkerSync(options);
+       marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+      
+      });
       }
     });
   }
@@ -48,10 +52,10 @@ export class AboutPage {
   getMarkerFromObject (item): MarkerOptions {
     let options: MarkerOptions = {
       icon: {
-        url: 'assets/imgs/lisboa-limpa_32x32.png',
+        url: 'assets/imgs/lisboalimpaplacemark.png',
         size: {
           width: 32,
-          height: 32
+          height: 46
         }
       },
     
@@ -64,14 +68,13 @@ export class AboutPage {
     
       styles: {
         'text-align': 'center',
-        'font-style': 'italic',
         'font-weight': 'bold',
-        'color': 'red'
+        'color': 'green'
       },
     
       animation: GoogleMapsAnimation.DROP,
       zIndex: 0,
-      disableAutoPan: true
+      disableAutoPan: false
     };
     return options;
   }
@@ -99,8 +102,7 @@ export class AboutPage {
         // Move the map camera to the location with animation
         return this.map.animateCamera({
           target: location.latLng,
-          zoom: 17,
-          tilt: 30
+          zoom: 13
         })
       }); 
   }
