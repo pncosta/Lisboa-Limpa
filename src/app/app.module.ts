@@ -9,9 +9,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GoogleMaps } from "@ionic-native/google-maps";
 import { HTTP } from "@ionic-native/http";
-
+import { AppVersion } from '@ionic-native/app-version';
 /* My imports */
 import { PartnersMapPage } from '../pages/partners-map/partners-map';
+import { AboutPage } from '../pages/about/about';
+import { HowWorksPage } from '../pages/how-works/how-works';
 import { ContactPage } from '../pages/contact/contact';
 import { KmlProvider } from '../providers/kml/kml';
 
@@ -24,7 +26,9 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     MyApp,
     PartnersMapPage,
-    ContactPage
+    ContactPage,
+    AboutPage,
+    HowWorksPage
   ],
   imports: [
     BrowserModule,
@@ -42,13 +46,16 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [
     MyApp,
     PartnersMapPage,
-    ContactPage
+    ContactPage,
+    AboutPage,
+    HowWorksPage
   ],
   providers: [
     StatusBar,
     GoogleMaps,
     SplashScreen,
     HTTP,
+    AppVersion,
     KmlProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     

@@ -1,0 +1,18 @@
+page-about {
+    .image {
+        max-height: 50%;
+        max-width: 60%;
+        margin: 18px 0;
+        align-self: center;
+      }
+    .image-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .meta-container {
+        margin-top: 48px;
+        display: flex;
+        flex-direction: row;        
+    }
+}
+

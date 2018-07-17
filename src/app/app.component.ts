@@ -4,11 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PartnersMapPage } from '../pages/partners-map/partners-map';
 import { ContactPage } from '../pages/contact/contact';
+import { HowWorksPage } from '../pages/how-works/how-works';
+import { AboutPage } from '../pages/about/about';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
     rootPage: any = PartnersMapPage;
@@ -37,9 +40,14 @@ export class MyApp {
     this.translate.get('menu.partnersmap').subscribe(
       v => this.pages.push( { title: v, component: PartnersMapPage  })) ;
 
+    this.translate.get('menu.howworks').subscribe(
+        v => this.pages.push( { title: v, component: HowWorksPage  })) ;
+
     this.translate.get('menu.contacts').subscribe(
-      v => this.pages.push( { title: v, component: ContactPage  })) ;
-   
+        v => this.pages.push( { title: v, component: ContactPage  })) ;
+    
+    this.translate.get('menu.about').subscribe(
+          v => this.pages.push( { title: v, component: AboutPage  })) ;
   }
 
   openPage(page) {
@@ -52,15 +60,11 @@ export class MyApp {
     // Set the default language for translation strings, and the current language.
     this.translate.setDefaultLang('en');
 
-
     if (this.translate.getBrowserLang() !== undefined) {
         this.translate.use(this.translate.getBrowserLang());
     } else {
         this.translate.use('en'); // Set your language here
     }
-
-}
-
-  
+  }
 }
 

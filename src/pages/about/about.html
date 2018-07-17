@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      <ion-title>{{ 'about.title' | translate }}</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <div class="image-container">
+    <img src="assets/imgs/logo.png" class="image"/>
+  </div>
+    <p> {{ 'about.description.line1' | translate }}</p>
+    <p> {{ 'about.description.line2' | translate }}</p>
+    <p> {{ 'about.description.line3' | translate }}</p>
+  
+    <div class="meta-container">
+    {{ 'about.appName' | translate }}: {{ name }} <br />
+    {{ 'about.versionNumber' | translate }}: {{ versionNumber }}
+    </div>
+</ion-content>
