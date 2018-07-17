@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PartnersMapPage } from '../pages/partners-map/partners-map';
 import { ContactPage } from '../pages/contact/contact';
-
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,17 +14,13 @@ export class MyApp {
     rootPage: any = PartnersMapPage;
     pages: Array<{title: string, component: any}>;
 
-   constructor(public platform: Platform, 
-    public statusBar: StatusBar, 
-    public splashScreen: SplashScreen) {
+   constructor( public platform: Platform, 
+                public statusBar: StatusBar, 
+                public splashScreen: SplashScreen, 
+                private translate: TranslateService) {
+    this.pages = [];
     this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Parceiros', component: PartnersMapPage },
-      // { title: 'Mapa', component: HomePage },   
-      { title: 'Contacts', component: ContactPage }
-    ];
+  
   }
 
   initializeApp() {
@@ -34,6 +30,16 @@ export class MyApp {
       this.statusBar.styleBlackOpaque;
       this.splashScreen.hide();
     });
+
+    // Loads i18n configs
+    this.initTranslate();
+    //Load and push translated menu entries
+    this.translate.get('menu.partnersmap').subscribe(
+      v => this.pages.push( { title: v, component: PartnersMapPage  })) ;
+
+    this.translate.get('menu.contacts').subscribe(
+      v => this.pages.push( { title: v, component: ContactPage  })) ;
+   
   }
 
   openPage(page) {
@@ -41,6 +47,20 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  initTranslate() {
+    // Set the default language for translation strings, and the current language.
+    this.translate.setDefaultLang('en');
+
+
+    if (this.translate.getBrowserLang() !== undefined) {
+        this.translate.use(this.translate.getBrowserLang());
+    } else {
+        this.translate.use('en'); // Set your language here
+    }
+
+}
+
   
 }
 

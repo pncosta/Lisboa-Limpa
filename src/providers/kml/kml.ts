@@ -12,11 +12,10 @@ import { HTTP } from '@ionic-native/http';
 export class KmlProvider {
 
   constructor(private http: HTTP) {
-    console.log('Hello KmlProvider Provider');
+
   }
 
   parseXML(data) {
-    console.log ("parsing xml...");
      return new Promise(resolve => {
         var k,
             arr    = [],
@@ -46,6 +45,7 @@ export class KmlProvider {
      });
   }
 
+  
   loadKml() {
     return new Promise(resolve => {
       const kmlUrl = 'http://www.google.com/maps/d/kml?forcekml=1&mid=1M2Y6bIXjkG-JkrxIc5iBR1fL_P6RHlPj&lid=CwvafB05g8c';
